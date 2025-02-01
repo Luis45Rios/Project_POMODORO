@@ -5,10 +5,16 @@
  */
 package Controlador;
 
+import Modelos.Tarea;
+
 /**
  *
  * @author luisr
  */
 public class TareaController {
+
+    public void actualizarTarea(Tarea tarea) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
