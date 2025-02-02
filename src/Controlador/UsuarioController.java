@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Controlador;
+import Modelos.Usuario;
 import Servicios.UsuarioFileManagment;
 /**
  *

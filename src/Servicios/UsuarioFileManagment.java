@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package Servicios;
+
+import Modelos.Usuario;
+
 /**
  *
  * @author luisr
