@@ -7,18 +7,10 @@ package Temporizador;
 
 import Controlador.TareaController;
 import Modelos.Tarea;
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Font;
-import java.awt.GridLayout;
 import java.util.Timer;
 import java.util.TimerTask;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 
 /**
  *
@@ -46,7 +38,7 @@ public class Frm_Pomodoro extends javax.swing.JFrame {
     private boolean enTiempoEnfoque; // Indica si está en tiempo de enfoque o descanso
     private boolean corriendo; // Indica si el temporizador está en ejecución
     private int tiempoTotal; // Tiempo total acumulado en segundos
-    private Integer numeroPomodoros;
+    private int numeroPomodoros;
     private TareaController tareaController = new TareaController();
 
     public Frm_Pomodoro(Tarea tarea) {
@@ -246,11 +238,10 @@ public class Frm_Pomodoro extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Frm_Pomodoro().setVisible(true);
-            }
-        });
+        java.awt.EventQueue.invokeLater(() -> {
+            new Frm_Pomodoro().setVisible(true);
+        }
+        );
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -2,26 +2,26 @@ package Servicios;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import Modelos.Tarea;
+import Servicios.FileManagment;
 
 public class TareaFileManagment {
     private static final String FILE_NAME = "tasks.txt";
 
     public Integer getTaskId() {
-        return FileManagement.countLines(FILE_NAME) + 1;
+        return FileManagment.countLines(FILE_NAME) + 1;
     }
 
     public void createTask(Tarea tarea) {
-        FileManagement.createFile(FILE_NAME);
+        FileManagment.createFile(FILE_NAME);
         String content = tarea.getId() + "|" + tarea.getNombre() + "|" + tarea.getTiempoEnfoque() + "|"
                 + tarea.getNumeroPomodoros() + "|" + tarea.getUsername() + ";";
-        FileManagement.writeFile(FILE_NAME, content);
+        FileManagment.writeFile(FILE_NAME, content);
     }
 
     public List<Tarea> getTasks(String username) {
         String regex = ".*\\|" + username + ";";
-        List<String> tasksRecords = FileManagement.searchInFile(FILE_NAME, regex);
+        List<String> tasksRecords = FileManagment.searchInFile(FILE_NAME, regex);
         List<Tarea> tasks = new ArrayList<Tarea>();
         for (String taskRecord : tasksRecords) {
             String[] taskData = taskRecord.split("\\|");
@@ -38,13 +38,13 @@ public class TareaFileManagment {
 
     public void deleteTask(Integer id) {
         String regex = id + "\\|.*;";
-        FileManagement.deleteInFile(FILE_NAME, regex);
+        FileManagment.deleteInFile(FILE_NAME, regex);
     }
 
     public void updateTask(Tarea tarea) {
         String regex = tarea.getId() + "\\|.*;";
         String content = tarea.getId() + "|" + tarea.getNombre() + "|" + tarea.getTiempoEnfoque() + "|"
                 + tarea.getNumeroPomodoros() + "|" + tarea.getUsername() + ";";
-        FileManagement.updateInFile(FILE_NAME, regex, content);
+        FileManagment.updateInFile(FILE_NAME, regex, content);
     }
 }

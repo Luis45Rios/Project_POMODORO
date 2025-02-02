@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 import Controlador.TareaController;
 import Modelos.Tarea;
 import Modelos.Usuario;
-import Temporizador.Pomodoro;
+import Temporizador.Frm_Pomodoro;
 
 /**
  *
@@ -180,7 +180,7 @@ public class Frm_CrearTarea extends javax.swing.JDialog {
 
         try {
             Tarea tarea = tareaController.crearTarea(nombre, tiempoEnfoque, numeroPomodoros, username);
-            Pomodoro pomodoro = new Pomodoro(tarea);
+            Frm_Pomodoro pomodoro = new Frm_Pomodoro(tarea);
             pomodoro.setVisible(true);
             this.dispose();
         } catch (Exception e) {
@@ -210,30 +210,19 @@ public class Frm_CrearTarea extends javax.swing.JDialog {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Frm_CrearTarea.class.getName()).log(java.util.logging.Level.SEVERE, null,
-                    ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Frm_CrearTarea.class.getName()).log(java.util.logging.Level.SEVERE, null,
-                    ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Frm_CrearTarea.class.getName()).log(java.util.logging.Level.SEVERE, null,
-                    ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Frm_CrearTarea.class.getName()).log(java.util.logging.Level.SEVERE, null,
                     ex);
         }
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                Frm_CrearTarea dialog = new Frm_CrearTarea(new javax.swing.JFrame(), true, null);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            Frm_CrearTarea dialog = new Frm_CrearTarea(new javax.swing.JFrame(), true, null);
+            dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                @Override
+                public void windowClosing(java.awt.event.WindowEvent e) {
+                    System.exit(0);
+                }
+            });
+            dialog.setVisible(true);
         });
     }
 

@@ -5,6 +5,8 @@
  */
 package project_pomodoro;
 
+import Inicio.Frm_Login;
+
 /**
  *
  * @author luisr
@@ -16,6 +18,8 @@ public class Project_POMODORO {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Frm_Login login = new Frm_Login();
+        login.setVisible(true);
     }
     
 }
